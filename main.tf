@@ -52,11 +52,13 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["${var.allowed_cidr_blocks}"]
   }
 
+  # allow all outbound traffic
   egress {
     from_port       = 0
     to_port         = 0
-    protocol        = -1
-    security_groups = ["${var.security_groups}"]
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+    # security_groups = ["${var.security_groups}"]
   }
 
   lifecycle {
