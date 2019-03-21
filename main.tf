@@ -52,7 +52,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["${var.allowed_cidr_blocks}"]
   }
 
-  ingress {
+  egress {
     from_port       = 0
     to_port         = 0
     protocol        = -1
